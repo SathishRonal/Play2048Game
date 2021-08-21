@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FOl-Ld-Ubq">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Helvetica.ttc">
+            <string>Helvetica-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="oNN-K6-aGL">
+            <objects>
+                <viewController id="FOl-Ld-Ubq" customClass="HomeViewController" customModule="Test2048Source" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jko-7Y-diu"/>
+                        <viewControllerLayoutGuide type="bottom" id="4TB-bU-ObI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oma-s0-KyU" userLabel="Root View">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q0D-w6-NPC" userLabel="ViewInfo">
+                                <rect key="frame" x="0.0" y="25" width="320" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2048" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-0o-6eJ">
+                                        <rect key="frame" x="20" y="20" width="101" height="63"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="63" id="FQk-U6-Rbx"/>
+                                            <constraint firstAttribute="width" constant="101" id="obf-YE-WVF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="38"/>
+                                        <color key="textColor" name="ButtonNewGameColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-9E-vjp">
+                                        <rect key="frame" x="137" y="20" width="80" height="63"/>
+                                        <color key="backgroundColor" name="ButtonBGColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="7Fw-zh-BYN"/>
+                                            <constraint firstAttribute="height" constant="63" id="kmo-Fi-GsK"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFT-JT-kUs">
+                                        <rect key="frame" x="222" y="106" width="88" height="30"/>
+                                        <color key="backgroundColor" name="ButtonNewGameColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="qLO-Zh-ibi"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <state key="normal" title="  New Game  ">
+                                            <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="resetGame:" destination="FOl-Ld-Ubq" eventType="touchUpInside" id="R9M-Hs-5oO"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="UQx-pX-ywi">
+                                        <rect key="frame" x="230" y="20" width="80" height="63"/>
+                                        <color key="backgroundColor" name="ButtonBGColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="80" id="dCo-Vk-MsY"/>
+                                            <constraint firstAttribute="height" constant="63" id="vaC-pv-TBq"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="UQx-pX-ywi" firstAttribute="leading" secondItem="xbW-9E-vjp" secondAttribute="trailing" constant="13" id="48P-gT-d8C"/>
+                                    <constraint firstAttribute="height" constant="144" id="B5n-Ng-XQ2"/>
+                                    <constraint firstItem="FFT-JT-kUs" firstAttribute="top" secondItem="xbW-9E-vjp" secondAttribute="bottom" constant="23" id="UVf-ZV-5nt"/>
+                                    <constraint firstAttribute="bottom" secondItem="FFT-JT-kUs" secondAttribute="bottom" constant="8" id="WIN-4C-nt9"/>
+                                    <constraint firstItem="jxd-0o-6eJ" firstAttribute="top" secondItem="q0D-w6-NPC" secondAttribute="top" constant="20" id="YAe-X1-5D7"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQx-pX-ywi" secondAttribute="trailing" constant="10" id="fBE-ST-aRT"/>
+                                    <constraint firstItem="jxd-0o-6eJ" firstAttribute="leading" secondItem="q0D-w6-NPC" secondAttribute="leading" constant="20" id="h0i-4G-igI"/>
+                                    <constraint firstAttribute="width" constant="320" id="jC6-x2-HW6"/>
+                                    <constraint firstItem="UQx-pX-ywi" firstAttribute="baseline" secondItem="xbW-9E-vjp" secondAttribute="baseline" id="u2c-1b-dn7"/>
+                                    <constraint firstAttribute="trailing" secondItem="FFT-JT-kUs" secondAttribute="trailing" constant="10" id="ubX-s2-llU"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYh-og-Rk3">
+                                <rect key="frame" x="16" y="177" width="288" height="383"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ORp-bO-iuD">
+                                        <rect key="frame" x="0.0" y="37.5" width="288" height="308"/>
+                                        <color key="backgroundColor" name="BgViewColor"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQs-v8-7QM" customClass="MainForBoard" customModule="Test2048Source" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="47.5" width="272" height="288"/>
+                                        <color key="backgroundColor" red="0.73333333329999995" green="0.67843137249999996" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="xQs-v8-7QM" secondAttribute="height" multiplier="1:1" constant="-16" id="WA7-TR-1HO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ORp-bO-iuD" firstAttribute="bottom" secondItem="xQs-v8-7QM" secondAttribute="bottom" constant="10" id="1Ae-lX-6z5"/>
+                                    <constraint firstItem="xQs-v8-7QM" firstAttribute="leading" secondItem="MYh-og-Rk3" secondAttribute="leadingMargin" id="4Bo-1A-YT0"/>
+                                    <constraint firstItem="xQs-v8-7QM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="MYh-og-Rk3" secondAttribute="top" priority="750" id="8pb-Fe-hp7"/>
+                                    <constraint firstAttribute="trailing" secondItem="ORp-bO-iuD" secondAttribute="trailing" id="CFA-5r-FdM"/>
+                                    <constraint firstItem="ORp-bO-iuD" firstAttribute="leading" secondItem="MYh-og-Rk3" secondAttribute="leading" id="X9u-vD-3KI"/>
+                                    <constraint firstItem="xQs-v8-7QM" firstAttribute="centerX" secondItem="MYh-og-Rk3" secondAttribute="centerX" id="cX4-1V-gGu"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="xQs-v8-7QM" secondAttribute="trailing" priority="750" constant="8" id="eVP-wJ-7pS"/>
+                                    <constraint firstItem="xQs-v8-7QM" firstAttribute="centerY" secondItem="MYh-og-Rk3" secondAttribute="centerY" id="h5h-Dd-6vz"/>
+                                    <constraint firstItem="ORp-bO-iuD" firstAttribute="top" secondItem="xQs-v8-7QM" secondAttribute="top" constant="-10" id="q8C-xL-rCW"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xQs-v8-7QM" secondAttribute="bottom" priority="750" id="utm-w1-n1r"/>
+                                    <constraint firstItem="xQs-v8-7QM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="MYh-og-Rk3" secondAttribute="leading" priority="750" id="vs8-9s-qfl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yaf-mG-HiU"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="q0D-w6-NPC" firstAttribute="top" secondItem="jko-7Y-diu" secondAttribute="bottom" constant="25" id="0f9-qH-Ohe"/>
+                            <constraint firstAttribute="centerX" secondItem="q0D-w6-NPC" secondAttribute="centerX" id="2RX-pI-VIr"/>
+                            <constraint firstItem="MYh-og-Rk3" firstAttribute="top" secondItem="q0D-w6-NPC" secondAttribute="bottom" constant="8" id="4Sc-RU-K3Z"/>
+                            <constraint firstItem="MYh-og-Rk3" firstAttribute="trailing" secondItem="oma-s0-KyU" secondAttribute="trailingMargin" id="Vxs-DB-Csf"/>
+                            <constraint firstItem="4TB-bU-ObI" firstAttribute="top" secondItem="MYh-og-Rk3" secondAttribute="bottom" constant="8" id="cwh-IA-KOF"/>
+                            <constraint firstItem="MYh-og-Rk3" firstAttribute="leading" secondItem="oma-s0-KyU" secondAttribute="leadingMargin" id="eEv-5f-PJj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bestLbl" destination="UQx-pX-ywi" id="xc8-so-lCf"/>
+                        <outlet property="mainBoard" destination="xQs-v8-7QM" id="o6o-9x-gmh"/>
+                        <outlet property="resetBtn" destination="FFT-JT-kUs" id="G0V-rc-gBH"/>
+                        <outlet property="scoreLbl" destination="xbW-9E-vjp" id="Qsi-EW-eNm"/>
+                        <outlet property="titleLbl" destination="jxd-0o-6eJ" id="O5t-NN-zC1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d6X-Iz-0pF" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="720" y="125.70422535211267"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="BgViewColor">
+            <color red="0.98039215686274506" green="0.94509803921568625" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonBGColor">
+            <color red="0.70196078431372544" green="0.64313725490196083" blue="0.58823529411764708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ButtonNewGameColor">
+            <color red="0.51399999856948853" green="0.43500000238418579" blue="0.34900000691413879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

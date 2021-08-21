@@ -8,73 +8,57 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    let kBestScoreKey = "kBestScoreKey"
-    let kPersistedModelKey = "kPersistedModelKey"
-    let kPersistedModelScoreKey = "kPersistedModelScoreKey"
+
+     let start: ExtensionforPlay
+     var bestScoreTxt = 0
+     var timeAuto: Timer?
+     var msgLbl = [UIButton]()
+     var startSwipes: CGPoint?
+     var lastValueMove = 0  // TODO: Implement a more elegant solution
     
     @IBOutlet weak var mainBoard: MainForBoard!
-    
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var scoreLbl: UILabel!
     @IBOutlet weak var bestLbl: UILabel!
-    
     @IBOutlet weak var resetBtn: UIButton!
    
     
-    fileprivate let game: ExtensionforPlay
-    fileprivate var bestScore = 0
-    fileprivate var autoTimer: Timer?
-    fileprivate var presentedMessages = [UIButton]()
-    fileprivate var swipeStart: CGPoint?
-    fileprivate var lastMove = 0  // TODO: Implement a more elegant solution
+
     
     required init?(coder aDecoder: NSCoder) {
        
-            game = ExtensionforPlay()
-       
-        
+        start = ExtensionforPlay()
         super.init(coder: aDecoder)
+        
     }
     
-    override var prefersStatusBarHidden : Bool {
-        return true
-    }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        game.delegate = self
+        start.delegate = self
+        mainBoard.size = start.boardSize
+        mainBoard.updateValuesWithModel(start.model, canSpawn: true)
+        ScoreLabel()
         
-        mainBoard.size = game.boardSize
-        mainBoard.updateValuesWithModel(game.model, canSpawn: true)
-
-        
-        
-        updateScoreLabel()
     }
     
-    @IBAction func toggleAutoRun(_ sender: AnyObject) {
-        if let timer = autoTimer {
-            timer.invalidate()
-            autoTimer = nil
-        } else {
-            autoMove()
-        }
+   
+    
+   
+    @IBAction func didClickResetGame(_ sender: AnyObject) {
+        exitMsg()
+        start.reset()
     }
     
-    @IBAction func resetGame(_ sender: AnyObject) {
-        dismissMessages()
-        game.reset()
-    }
     
-    fileprivate func updateScoreLabel() {
-        if (game.score > bestScore) {
-            bestScore = game.score
+    fileprivate func ScoreLabel() {
+        if (start.score > bestScoreTxt) {
+            bestScoreTxt = start.score
           
         }
-        
-        scoreLbl.attributedText = attributedText("Score", value: "\(game.score)")
-        bestLbl.attributedText = attributedText("Best", value: "\(bestScore)")
+        scoreLbl.attributedText = attributedText("Score", value: "\(start.score)")
+        bestLbl.attributedText = attributedText("Best", value: "\(bestScoreTxt)")
     }
     
     fileprivate func attributedText(_ title: String, value: String) -> NSAttributedString {
@@ -88,16 +72,16 @@ class HomeViewController: UIViewController {
     }
     
     @objc func newGameButtonTapped(_ sender: AnyObject) {
-        resetGame(sender)
+        didClickResetGame(sender)
     }
     
     @objc func continuePlayingButtonTapped(_ sender: AnyObject) {
-        dismissMessages()
+        exitMsg()
     }
     
     @objc func autoMove() {
-        if autoTimer == nil || autoTimer!.isValid == false {
-            autoTimer = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(HomeViewController.autoMove), userInfo: nil, repeats: true)
+        if timeAuto == nil || timeAuto!.isValid == false {
+            timeAuto = Timer.scheduledTimer(timeInterval: 0.001, target: self, selector: #selector(HomeViewController.autoMove), userInfo: nil, repeats: true)
         }
         switch(arc4random_uniform(4)) {
         case 0: shortUp()
@@ -108,22 +92,22 @@ class HomeViewController: UIViewController {
         }
     }
     
-    @objc func shortUp() { game.swipe(.y(.decrease)) }
-    @objc func shortDown() { game.swipe(.y(.increase)) }
-    @objc func shortLeft() { game.swipe(.x(.decrease)) }
-    @objc func shortRight() { game.swipe(.x(.increase)) }
+    @objc func shortUp() { start.swipe(.y(.decrease)) }
+    @objc func shortDown() { start.swipe(.y(.increase)) }
+    @objc func shortLeft() { start.swipe(.x(.decrease)) }
+    @objc func shortRight() { start.swipe(.x(.increase)) }
 }
 // MARK: Touch handling
 extension HomeViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            swipeStart = touch.location(in: view)
-            lastMove = 0
+            startSwipes = touch.location(in: view)
+            lastValueMove = 0
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        guard let swipeStart = swipeStart, let touch = touches.first else { return }
+        guard let swipeStart = startSwipes, let touch = touches.first else { return }
         
         let treshold: CGFloat = 250.0
         let loc = touch.location(in: view)
@@ -134,21 +118,21 @@ extension HomeViewController {
             return sensitivity >= 0 ? a > delta : a < delta
         }
         
-        if diff.x > 0 && evaluateDirection(diff.x, diff.y, treshold) && lastMove != 1 {
+        if diff.x > 0 && evaluateDirection(diff.x, diff.y, treshold) && lastValueMove != 1 {
             shortRight()
-            lastMove = 1
-        } else if diff.x < 0 && evaluateDirection(diff.x, diff.y, -treshold) && lastMove != 2 {
+            lastValueMove = 1
+        } else if diff.x < 0 && evaluateDirection(diff.x, diff.y, -treshold) && lastValueMove != 2 {
             shortLeft()
-            lastMove = 2
-        } else if diff.y > 0 && evaluateDirection(diff.y, diff.x, treshold) && lastMove != 3 {
+            lastValueMove = 2
+        } else if diff.y > 0 && evaluateDirection(diff.y, diff.x, treshold) && lastValueMove != 3 {
             shortDown()
-            lastMove = 3
-        } else if diff.y < 0 && evaluateDirection(diff.y, diff.x, -treshold) && lastMove != 4 {
+            lastValueMove = 3
+        } else if diff.y < 0 && evaluateDirection(diff.y, diff.x, -treshold) && lastValueMove != 4 {
             shortUp()
-            lastMove = 4
+            lastValueMove = 4
         }
         
-        self.swipeStart = loc
+        self.startSwipes = loc
     }
 }
 
@@ -169,60 +153,60 @@ extension HomeViewController {
         }
     }
     
-    @objc func shortReset() { game.reset() }
+    @objc func shortReset() { start.reset() }
 }
 
 extension HomeViewController: ExtensionforPlayDelegate {
-    func game2048DidProcessMove(_ game: ExtensionforPlay) {
+    func didProcessMove(_ game: ExtensionforPlay) {
         mainBoard.updateValuesWithModel(game.model, canSpawn: false)
-        mainBoard.animateTiles()
+        mainBoard.titleAniFrame()
         
       
     }
     
-    func game2048GameOver(_ game: ExtensionforPlay) {
-        self.displayMessage("Game over!",
+    func gameOver(_ game: ExtensionforPlay) {
+        self.messageLbldisplay("Game over!",
                             subtitle: "Tap to try again",
                             action: #selector(HomeViewController.newGameButtonTapped(_:)))
     }
     
-    func game2048Reached2048(_ game: ExtensionforPlay) {
-        self.displayMessage("You win!",
+    func reached(_ game: ExtensionforPlay) {
+        self.messageLbldisplay("You win!",
                             subtitle: "Tap to continue playing",
                             action: #selector(HomeViewController.continuePlayingButtonTapped(_:)))
     }
     
-    func game2048ScoreChanged(_ game: ExtensionforPlay, score: Int) {
-        updateScoreLabel()
+    func ScoreChanged(_ game: ExtensionforPlay, score: Int) {
+        ScoreLabel()
         if score > 0 {
-            displayScoreChangeNotification("+ \(score)")
+            scoreChangeNtfdisplay("+ \(score)")
         }
     }
     
-    func game2048TileMerged(_ game: ExtensionforPlay, from: CGPoint, to: CGPoint) {
+    func tileMerged(_ game: ExtensionforPlay, from: CGPoint, to: CGPoint) {
         mainBoard.moveAndRemoveTile(from: from.boardPosition, to: to.boardPosition)
     }
     
-    func game2048TileSpawnedAtPoint(_ game: ExtensionforPlay, point: CGPoint) {
+    func tileSpawnedAtPoint(_ game: ExtensionforPlay, point: CGPoint) {
         mainBoard.updateValuesWithModel(game.model, canSpawn: true)
     }
     
-    func game2048TileMoved(_ game: ExtensionforPlay, from: CGPoint, to: CGPoint) {
+    func tileMoved(_ game: ExtensionforPlay, from: CGPoint, to: CGPoint) {
         mainBoard.moveTile(from: from.boardPosition, to: to.boardPosition)
     }
     
-    func dismissMessages() {
-        for message in presentedMessages {
+    func exitMsg() {
+        for message in msgLbl {
             UIView.animate(withDuration: 0.1, animations: {
                 message.alpha = 0
                 }, completion: { _ in
                     message.removeFromSuperview()
             })
         }
-        presentedMessages.removeAll()
+        msgLbl.removeAll()
     }
     
-    private func displayScoreChangeNotification(_ text: String) {
+    private func scoreChangeNtfdisplay(_ text: String) {
         let label = UILabel(frame: scoreLbl.frame)
         label.text = text
         label.textAlignment = .center
@@ -239,10 +223,10 @@ extension HomeViewController: ExtensionforPlayDelegate {
         })
     }
     
-    private func displayMessage(_ title: String, subtitle: String, action: Selector) {
+    private func messageLbldisplay(_ title: String, subtitle: String, action: Selector) {
         let messageButton = UIButton(type: .custom)
         
-        presentedMessages.append(messageButton)
+        msgLbl.append(messageButton)
         
         messageButton.translatesAutoresizingMaskIntoConstraints = false
         messageButton.backgroundColor = UIColor(white: 1, alpha: 0.5)
@@ -266,9 +250,9 @@ extension HomeViewController: ExtensionforPlayDelegate {
         
         UIView.animate(withDuration: 0.2) { messageButton.alpha = 1 }
         
-        if autoTimer != nil {
-            autoTimer!.invalidate()
-            autoTimer = nil
+        if timeAuto != nil {
+            timeAuto!.invalidate()
+            timeAuto = nil
         }
     }
 }

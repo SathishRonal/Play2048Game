@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C94B34B726D0C20F006AB9C2 /* MainForBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B34B626D0C20F006AB9C2 /* MainForBoard.swift */; };
+		C94B34BF26D0C23C006AB9C2 /* MainForTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B34BE26D0C23C006AB9C2 /* MainForTitleView.swift */; };
+		C94B34C526D0C2D3006AB9C2 /* ExtensionforPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B34C426D0C2D3006AB9C2 /* ExtensionforPlay.swift */; };
+		C94B34D326D0C626006AB9C2 /* NumberColor.json in Resources */ = {isa = PBXBuildFile; fileRef = C94B34D226D0C626006AB9C2 /* NumberColor.json */; };
+		C94B34E626D0CA20006AB9C2 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94B34E526D0CA20006AB9C2 /* Array.swift */; };
 		C951683B26CFDCBB00AF0683 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951683A26CFDCBB00AF0683 /* AppDelegate.swift */; };
 		C951683D26CFDCBB00AF0683 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951683C26CFDCBB00AF0683 /* SceneDelegate.swift */; };
-		C951683F26CFDCBB00AF0683 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951683E26CFDCBB00AF0683 /* ViewController.swift */; };
 		C951684226CFDCBB00AF0683 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C951684026CFDCBB00AF0683 /* Main.storyboard */; };
 		C951684526CFDCBB00AF0683 /* Test2048Source.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C951684326CFDCBB00AF0683 /* Test2048Source.xcdatamodeld */; };
 		C951684726CFDCBD00AF0683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C951684626CFDCBD00AF0683 /* Assets.xcassets */; };
 		C951684A26CFDCBD00AF0683 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C951684826CFDCBD00AF0683 /* LaunchScreen.storyboard */; };
 		C951685526CFDCBD00AF0683 /* Test2048SourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951685426CFDCBD00AF0683 /* Test2048SourceTests.swift */; };
 		C951686026CFDCBD00AF0683 /* Test2048SourceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951685F26CFDCBD00AF0683 /* Test2048SourceUITests.swift */; };
+		C951687426CFE0AD00AF0683 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C951687326CFE0AD00AF0683 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C94B34B626D0C20F006AB9C2 /* MainForBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainForBoard.swift; sourceTree = "<group>"; };
+		C94B34BE26D0C23C006AB9C2 /* MainForTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainForTitleView.swift; sourceTree = "<group>"; };
+		C94B34C426D0C2D3006AB9C2 /* ExtensionforPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionforPlay.swift; sourceTree = "<group>"; };
+		C94B34D226D0C626006AB9C2 /* NumberColor.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = NumberColor.json; sourceTree = "<group>"; };
+		C94B34E526D0CA20006AB9C2 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		C951683726CFDCBB00AF0683 /* Test2048Source.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Test2048Source.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C951683A26CFDCBB00AF0683 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C951683C26CFDCBB00AF0683 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C951683E26CFDCBB00AF0683 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C951684126CFDCBB00AF0683 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C951684426CFDCBB00AF0683 /* Test2048Source.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Test2048Source.xcdatamodel; sourceTree = "<group>"; };
 		C951684626CFDCBD00AF0683 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +60,7 @@
 		C951685B26CFDCBD00AF0683 /* Test2048SourceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test2048SourceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C951685F26CFDCBD00AF0683 /* Test2048SourceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2048SourceUITests.swift; sourceTree = "<group>"; };
 		C951686126CFDCBD00AF0683 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C951687326CFE0AD00AF0683 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +88,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C94B34B526D0C1F1006AB9C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C94B34B626D0C20F006AB9C2 /* MainForBoard.swift */,
+				C94B34BE26D0C23C006AB9C2 /* MainForTitleView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C94B34C326D0C2B3006AB9C2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C94B34C426D0C2D3006AB9C2 /* ExtensionforPlay.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C94B34D726D0C955006AB9C2 /* Appdelegate */ = {
+			isa = PBXGroup;
+			children = (
+				C951683A26CFDCBB00AF0683 /* AppDelegate.swift */,
+				C951683C26CFDCBB00AF0683 /* SceneDelegate.swift */,
+			);
+			path = Appdelegate;
+			sourceTree = "<group>";
+		};
+		C94B34D826D0C975006AB9C2 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				C951684026CFDCBB00AF0683 /* Main.storyboard */,
+				C951684826CFDCBD00AF0683 /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		C94B34D926D0C999006AB9C2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C94B34E526D0CA20006AB9C2 /* Array.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C94B34DA26D0C9AC006AB9C2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C951687326CFE0AD00AF0683 /* HomeViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C94B34DB26D0C9C9006AB9C2 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C94B34D226D0C626006AB9C2 /* NumberColor.json */,
+				C951684626CFDCBD00AF0683 /* Assets.xcassets */,
+				C951684B26CFDCBD00AF0683 /* Info.plist */,
+				C951684326CFDCBB00AF0683 /* Test2048Source.xcdatamodeld */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 		C951682E26CFDCBB00AF0683 = {
 			isa = PBXGroup;
 			children = (
@@ -101,14 +173,13 @@
 		C951683926CFDCBB00AF0683 /* Test2048Source */ = {
 			isa = PBXGroup;
 			children = (
-				C951683A26CFDCBB00AF0683 /* AppDelegate.swift */,
-				C951683C26CFDCBB00AF0683 /* SceneDelegate.swift */,
-				C951683E26CFDCBB00AF0683 /* ViewController.swift */,
-				C951684026CFDCBB00AF0683 /* Main.storyboard */,
-				C951684626CFDCBD00AF0683 /* Assets.xcassets */,
-				C951684826CFDCBD00AF0683 /* LaunchScreen.storyboard */,
-				C951684B26CFDCBD00AF0683 /* Info.plist */,
-				C951684326CFDCBB00AF0683 /* Test2048Source.xcdatamodeld */,
+				C94B34D726D0C955006AB9C2 /* Appdelegate */,
+				C94B34DA26D0C9AC006AB9C2 /* ViewController */,
+				C94B34B526D0C1F1006AB9C2 /* View */,
+				C94B34C326D0C2B3006AB9C2 /* Extension */,
+				C94B34D826D0C975006AB9C2 /* StoryBoard */,
+				C94B34D926D0C999006AB9C2 /* Utilities */,
+				C94B34DB26D0C9C9006AB9C2 /* Resource */,
 			);
 			path = Test2048Source;
 			sourceTree = "<group>";
@@ -234,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C94B34D326D0C626006AB9C2 /* NumberColor.json in Resources */,
 				C951684A26CFDCBD00AF0683 /* LaunchScreen.storyboard in Resources */,
 				C951684726CFDCBD00AF0683 /* Assets.xcassets in Resources */,
 				C951684226CFDCBB00AF0683 /* Main.storyboard in Resources */,
@@ -261,10 +333,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C951683F26CFDCBB00AF0683 /* ViewController.swift in Sources */,
+				C94B34C526D0C2D3006AB9C2 /* ExtensionforPlay.swift in Sources */,
 				C951683B26CFDCBB00AF0683 /* AppDelegate.swift in Sources */,
+				C94B34BF26D0C23C006AB9C2 /* MainForTitleView.swift in Sources */,
 				C951684526CFDCBB00AF0683 /* Test2048Source.xcdatamodeld in Sources */,
+				C94B34B726D0C20F006AB9C2 /* MainForBoard.swift in Sources */,
+				C94B34E626D0CA20006AB9C2 /* Array.swift in Sources */,
 				C951683D26CFDCBB00AF0683 /* SceneDelegate.swift in Sources */,
+				C951687426CFE0AD00AF0683 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,12 +517,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test2048Source/Info.plist;
+				DEVELOPMENT_TEAM = 23V4WYN3M5;
+				INFOPLIST_FILE = Test2048Source/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Casperon.Swiftui.Test2048Source;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Casperon.Test2048Source;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -459,12 +536,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test2048Source/Info.plist;
+				DEVELOPMENT_TEAM = 23V4WYN3M5;
+				INFOPLIST_FILE = Test2048Source/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Casperon.Swiftui.Test2048Source;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Casperon.Test2048Source;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -77,7 +77,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="resetGame:" destination="FOl-Ld-Ubq" eventType="touchUpInside" id="R9M-Hs-5oO"/>
+                                            <action selector="didClickResetGame:" destination="FOl-Ld-Ubq" eventType="touchUpInside" id="gZF-4l-Ptv"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Best" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="80" translatesAutoresizingMaskIntoConstraints="NO" id="UQx-pX-ywi">
